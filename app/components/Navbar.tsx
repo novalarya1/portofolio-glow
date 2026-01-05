@@ -13,7 +13,7 @@ export default function Navbar() {
         
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
-          {['Project', 'About', 'Contact'].map((item) => (
+          {['About', 'Project', 'Contact'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-neonBlue transition-colors">
               {item}
             </a>
