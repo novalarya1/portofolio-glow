@@ -33,7 +33,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="absolute top-16 left-0 w-full bg-charcoal border-b border-white/10 p-6 flex flex-col gap-4 md:hidden"
         >
-          {['Project', 'About', 'Contact'].map((item) => (
+          {['About', 'Project', 'Contact'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-lg text-gray-300">
               {item}
             </a>
