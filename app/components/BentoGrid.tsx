@@ -1,69 +1,94 @@
 "use client";
-
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { Github, ExternalLink, BrainCircuit, ShoppingBag, LayoutDashboard, Wallet } from "lucide-react";
 
 const projects = [
   {
+    id: 1,
     title: "AI Dashboard",
-    description: "The next generation of predictive analytics and smart data management.",
-    size: "md:col-span-2 md:row-span-2",
-    accent: "from-purple-500/20",
+    desc: "The next generation of predictive analytics and smart data management using machine learning models.",
+    tech: ["Next.js", "Python", "Recharts"],
+    icon: <BrainCircuit size={24} />,
+    size: "lg:col-span-2 lg:row-span-2", // Ukuran besar di kiri
+    color: "from-purple-500/20 to-blue-500/20",
   },
   {
+    id: 2,
     title: "E-Commerce",
-    description: "Minimalist shopping experience.",
-    size: "md:col-span-1 md:row-span-1",
-    accent: "from-blue-500/20",
+    desc: "Minimalist shopping experience with high-speed performance and clean UI.",
+    tech: ["Stripe", "Sanity", "Tailwind"],
+    icon: <ShoppingBag size={24} />,
+    size: "lg:col-span-1 lg:row-span-1",
+    color: "from-emerald-500/20 to-teal-500/20",
   },
   {
+    id: 3,
     title: "SaaS App",
-    description: "Streamlined workflow for modern teams.",
-    size: "md:col-span-1 md:row-span-1",
-    accent: "from-emerald-500/20",
+    desc: "Streamlined workflow and collaboration platform for modern distributed teams.",
+    tech: ["Node.js", "PostgreSQL", "Socket.io"],
+    icon: <LayoutDashboard size={24} />,
+    size: "lg:col-span-1 lg:row-span-1",
+    color: "from-orange-500/20 to-red-500/20",
   },
   {
+    id: 4,
     title: "Crypto Wallet",
-    description: "Secure and decentralized asset management platform.",
-    size: "md:col-span-3 md:row-span-1",
-    accent: "from-orange-500/20",
+    desc: "Secure and decentralized asset management platform with multi-chain support.",
+    tech: ["Solidity", "Ethers.js", "Web3"],
+    icon: <Wallet size={24} />,
+    size: "lg:col-span-3 lg:row-span-1", // Ukuran lebar di bawah
+    color: "from-blue-500/20 to-cyan-500/20",
   },
 ];
 
 export function BentoGrid() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[180px] max-w-6xl mx-auto">
-      {projects.map((project, i) => (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 auto-rows-[280px]">
+      {projects.map((project, index) => (
         <motion.div
-          key={i}
+          key={project.id}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: i * 0.1 }}
+          transition={{ delay: index * 0.1, duration: 0.5 }}
           whileHover={{ y: -5 }}
-          className={`${project.size} group relative overflow-hidden rounded-[2rem] border border-white/5 bg-[#0f0f0f] p-8 flex flex-col justify-between transition-all hover:border-white/20`}
+          className={`group relative overflow-hidden rounded-[2rem] border border-white/5 bg-white/5 p-8 flex flex-col justify-end transition-all hover:border-white/10 ${project.size}`}
         >
-          {/* Background Gradient Effect */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+          {/* Background Gradient & Glow */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
           
-          <div className="flex justify-between items-start relative z-10">
-            <div className="p-3 bg-white/5 rounded-2xl border border-white/5">
-              <Github size={20} className="text-gray-400 group-hover:text-white transition-colors" />
-            </div>
-            <ArrowUpRight size={24} className="text-gray-600 group-hover:text-white transition-colors" />
+          {/* Icons Top Row */}
+          <div className="absolute top-8 left-8 flex items-center gap-3">
+             <div className="p-3 rounded-2xl bg-white/5 text-gray-400 group-hover:text-white transition-colors">
+                {project.icon}
+             </div>
           </div>
 
+          <div className="absolute top-8 right-8 flex gap-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+            <button className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20">
+              <Github size={18} />
+            </button>
+            <button className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20">
+              <ExternalLink size={18} />
+            </button>
+          </div>
+
+          {/* Content */}
           <div className="relative z-10">
-            <h3 className="text-2xl font-semibold text-white tracking-tight mb-2">
-              {project.title}
-            </h3>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-[250px] group-hover:text-gray-400 transition-colors">
-              {project.description}
+            <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+            <p className="text-gray-400 text-sm max-w-[280px] mb-4 group-hover:text-gray-300 transition-colors">
+              {project.desc}
             </p>
+            
+            {/* Tech Badges */}
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((t) => (
+                <span key={t} className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider text-gray-500 font-bold">
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
-
-          {/* Bottom Glow Line */}
-          <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         </motion.div>
       ))}
     </div>

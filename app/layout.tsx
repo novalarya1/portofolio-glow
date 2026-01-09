@@ -17,6 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Noval Arya | Creative Developer",
   description: "Portfolio specializing in modern web interfaces.",
+  // Tambahkan baris di bawah ini
+  icons: {
+    icon: "/logo.png", 
+    apple: "/logo.png", // Opsional: Untuk perangkat Apple
+  },
 };
 
 export default function RootLayout({

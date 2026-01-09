@@ -87,8 +87,15 @@ export default function Hero() {
           transition={{ delay: 1.6 }}
           className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
         >
+        
           <button 
-            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() => {
+              // Sesuaikan ID dengan yang ada di page.tsx Anda yaitu "project"
+              const projectSection = document.getElementById("project");
+              if (projectSection) {
+                projectSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
             className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-white/10 cursor-pointer"
           >
             View Projects
