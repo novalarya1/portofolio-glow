@@ -1,24 +1,24 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Education from "./components/Education"; // Import komponen baru
+import Education from "./components/Education";
 import { BentoGrid } from "./components/BentoGrid";
 import { Certificates } from "./components/Certificates";
 import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    /* Main container using the charcoal background from your v4 theme */
-    <main className="min-h-screen bg-charcoal antialiased selection:bg-neonBlue/30">
+    /* Menggunakan bg-white untuk mode terang dan bg-charcoal untuk mode gelap */
+    <main className="min-h-screen bg-white dark:bg-charcoal transition-colors duration-300 antialiased selection:bg-neonBlue/30">
       <Navbar />
       
-      {/* Hero Section: The first point of engagement */}
+      {/* Hero Section */}
       <Hero />
 
-      {/* About Section: Introducing yourself and your core skills */}
+      {/* About Section */}
       <About />
 
-      {/* Projects Section: Showcasing your work */}
+      {/* Projects Section */}
       <section id="project" className="relative py-24 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
@@ -26,10 +26,11 @@ export default function Home() {
             <div className="inline-block px-3 py-1 rounded-full border border-neonBlue/20 bg-neonBlue/5 text-neonBlue text-xs font-medium tracking-wider uppercase">
               Portfolio
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            {/* Judul adaptif: Hitam di mode terang, putih di mode gelap */}
+            <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight">
               Selected Works
             </h2>
-            <p className="text-gray-500 text-lg max-w-xl leading-relaxed">
+            <p className="text-zinc-500 dark:text-gray-500 text-lg max-w-xl leading-relaxed">
               A curated collection of projects designed with a focus on detail, 
               performance, and meaningful user experiences.
             </p>
@@ -43,20 +44,20 @@ export default function Home() {
         <div className="absolute top-0 right-0 -z-10 w-100 h-100 bg-neonBlue/5 blur-[120px] pointer-events-none" />
       </section>
       
-      {/* Education Section: Your academic learning path */}
-        <Education />
+      {/* Education Section */}
+      <Education />
         
-      {/* Certificates Section: Official recognitions */}
-      <section id="certificates" className="bg-charcoal/50 py-12">
+      {/* Certificates Section */}
+      <section id="certificates" className="bg-zinc-50 dark:bg-charcoal/50 py-12 transition-colors">
         <Certificates />
       </section>
 
-      {/* Contact Section: The final call to action */}
+      {/* Contact Section */}
       <Contact />
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 text-center bg-charcoal">
-        <p className="text-gray-600 text-sm">
+      <footer className="py-12 border-t border-zinc-200 dark:border-white/5 text-center bg-white dark:bg-charcoal transition-colors">
+        <p className="text-zinc-400 dark:text-gray-600 text-sm">
           © 2026 Noval Arya. Built with Next.js & Tailwind v4.
         </p>
       </footer>
