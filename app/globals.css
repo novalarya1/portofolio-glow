@@ -4,18 +4,29 @@
 @source "./components/**/*.{tsx,ts,jsx,js}";
 @source "./app/**/*.{tsx,ts,jsx,js}";
 
+/* 1. Blok Theme: HANYA untuk variabel & keyframes */
 @theme {
-  /* Definisi Warna Custom */
   --color-charcoal: #0a0a0a;
   --color-neon-purple: #8b5cf6;
   --color-neon-blue: #3b82f6;
-  
-  /* Animasi pulse lambat (Custom Animation) */
   --animate-pulse-slow: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes gradient {
+    from { background-position: 0% center; }
+    to { background-position: 200% center; }
+  }
 }
 
-/* Base Styles */
+/* 2. DAFTARKAN VARIANT DI LUAR @theme */
+@variant dark (&:where(.dark, .dark *));
+
+/* 3. Base Styles */
 :root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+}
+
+.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
@@ -26,58 +37,41 @@ body {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Custom Utilities */
-
-/* 1. Animasi Gradien Bergerak */
+/* 4. Custom Utilities */
 @utility animate-gradient {
   background-size: 200% auto;
   animation: gradient 5s linear infinite;
 }
 
-/* 2. Text Gradient Utility (Fix: Menggunakan warna dari theme) */
 @utility text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  -webkit-text-fill-color: transparent;
-  /* Contoh default jika ingin otomatis memakai warna neon */
-  background-image: linear-gradient(to right, var(--color-neon-blue), var(--color-neon-purple));
+  background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
 }
 
-/* 3. Input Field (Fix: Menggunakan var() agar terbaca benar di v4) */
 @utility input-field {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem; /* rounded-xl */
-  padding: 0.75rem 1rem; /* px-4 py-3 */
-  color: white;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: inherit;
   outline: none;
-  transition-property: all;
-  transition-duration: 150ms;
+  transition: all 150ms;
 
   &:focus {
-    border-color: color-mix(in srgb, var(--color-neon-purple) 50%, transparent);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-neon-purple) 50%, transparent);
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 1px #8b5cf6;
   }
 }
 
-/* Keyframes */
-@keyframes gradient {
-  from { background-position: 0% center; }
-  to { background-position: 200% center; }
-}
-
-@theme {
-  /* Warna utama kamu */
-  --color-charcoal: #121212;
-  --color-neonBlue: #22d3ee;
-}
-
-/* Pastikan transisi warna halus */
-body {
-  @apply transition-colors duration-300;
+/* Styling tambahan untuk input field saat mode dark */
+.dark .input-field {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }

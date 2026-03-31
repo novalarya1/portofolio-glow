@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink, BrainCircuit, ShoppingBag, LayoutDashboard } from "lucide-react";
 import React from "react";
 
-// 1. Definisikan Tipe Data untuk Project
 interface Project {
   id: number;
   title: string;
@@ -58,7 +57,6 @@ export function BentoGrid() {
   );
 }
 
-// 2. Berikan Tipe Data pada Props ProjectCard
 interface ProjectCardProps {
   project: Project;
   index: number;
@@ -72,16 +70,17 @@ function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ y: -5 }}
-      className={`group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900/50 p-8 flex flex-col justify-end transition-all hover:border-white/20 ${project.size}`}
+      /* Update: bg-zinc-50 (light) vs bg-zinc-900/50 (dark) */
+      className={`group relative overflow-hidden rounded-[2.5rem] border border-zinc-200 dark:border-white/10 bg-zinc-50 dark:bg-zinc-900/50 p-8 flex flex-col justify-end transition-all hover:border-neon-blue/30 dark:hover:border-white/20 ${project.size}`}
     >
-      {/* Background Gradient & Glow */}
+      {/* Background Gradient & Glow (Hanya muncul saat hover) */}
       <div 
         className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} 
       />
       
       {/* Icon Top Left */}
       <div className="absolute top-8 left-8">
-        <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-gray-400 group-hover:text-white group-hover:border-white/10 transition-all duration-300">
+        <div className="p-4 rounded-2xl bg-zinc-200 dark:bg-white/5 border border-zinc-300 dark:border-white/5 text-zinc-500 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white group-hover:border-zinc-400 dark:group-hover:border-white/10 transition-all duration-300">
           {project.icon}
         </div>
       </div>
@@ -93,7 +92,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.link} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-md transition-all"
+            className="p-3 rounded-full bg-zinc-200/50 dark:bg-white/10 text-zinc-900 dark:text-white hover:bg-zinc-300 dark:hover:bg-white/20 backdrop-blur-md transition-all"
             aria-label="View Github Repository"
           >
             <Github size={20} />
@@ -101,7 +100,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
         )}
         <a 
           href="#" 
-          className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 backdrop-blur-md transition-all"
+          className="p-3 rounded-full bg-zinc-200/50 dark:bg-white/10 text-zinc-900 dark:text-white hover:bg-zinc-300 dark:hover:bg-white/20 backdrop-blur-md transition-all"
           aria-label="View Live Demo"
         >
           <ExternalLink size={20} />
@@ -110,11 +109,12 @@ function ProjectCard({ project, index }: ProjectCardProps) {
 
       {/* Content Section */}
       <div className="relative z-10 space-y-3">
-        <h3 className="text-2xl font-bold text-white tracking-tight">
+        {/* Text adaptive: Zinc-900 (light) vs White (dark) */}
+        <h3 className="text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
           {project.title}
         </h3>
         
-        <p className="text-gray-400 text-sm leading-relaxed max-w-[90%] group-hover:text-gray-200 transition-colors duration-300">
+        <p className="text-zinc-500 dark:text-gray-400 text-sm leading-relaxed max-w-[90%] group-hover:text-zinc-900 dark:group-hover:text-gray-200 transition-colors duration-300">
           {project.desc}
         </p>
         
@@ -123,7 +123,7 @@ function ProjectCard({ project, index }: ProjectCardProps) {
           {project.tech.map((t) => (
             <span 
               key={t} 
-              className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-widest text-gray-400 group-hover:text-white group-hover:bg-white/10 transition-all"
+              className="px-3 py-1 rounded-full bg-zinc-200 dark:bg-white/5 border border-zinc-300 dark:border-white/10 text-[10px] uppercase tracking-widest text-zinc-500 dark:text-gray-400 group-hover:text-zinc-900 dark:group-hover:text-white group-hover:bg-zinc-300 dark:group-hover:bg-white/10 transition-all"
             >
               {t}
             </span>
