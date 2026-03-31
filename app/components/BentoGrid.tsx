@@ -1,8 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, BrainCircuit, ShoppingBag, LayoutDashboard, Wallet } from "lucide-react";
+import { Github, ExternalLink, BrainCircuit, ShoppingBag, LayoutDashboard } from "lucide-react";
+import React from "react";
 
-const projects = [
+// 1. Definisikan Tipe Data untuk Project
+interface Project {
+  id: number;
+  title: string;
+  desc: string;
+  tech: string[];
+  icon: React.ReactNode;
+  link: string;
+  size: string;
+  color: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "King Rental",
@@ -23,27 +36,16 @@ const projects = [
     size: "lg:col-span-1 lg:row-span-2",
     color: "from-emerald-500/20 to-teal-500/20",
   },
-  // {
-  //   id: 3,
-  //   title: "Crypto Wallet",
-  //   desc: "Secure decentralized asset management platform featuring multi-chain support and Web3 integration.",
-  //   tech: ["Solidity", "Ethers.js", "Web3"],
-  //   icon: <Wallet size={24} />,
-  //   link: "#",
-  //   size: "lg:col-span-1 lg:row-span-2",
-  //   color: "from-blue-500/20 to-cyan-500/20",
-  // },
   {
     id: 4,
     title: "Travel.AI",
-    desc: "A robust travel management system built with Laravel. As the Backend Developer, I architected the server-side logic and database schema to handle travel packages and bookings efficiently. I focused on building secure authentication, structured CRUD operations, and a scalable API architecture to ensure seamless data management.",
+    desc: "A robust travel management system built with Laravel. As the Backend Developer, I architected the server-side logic and database schema to handle travel packages and bookings efficiently.",
     tech: ["Laravel", "PostgreSQL", "PHP"],
     icon: <LayoutDashboard size={24} />,
     link: "https://github.com/novalarya1/travel-agent",
     size: "lg:col-span-3 lg:row-span-1",
     color: "from-orange-500/20 to-red-500/20",
   },
-  
 ];
 
 export function BentoGrid() {
@@ -56,7 +58,13 @@ export function BentoGrid() {
   );
 }
 
-function ProjectCard({ project, index }) {
+// 2. Berikan Tipe Data pada Props ProjectCard
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
+
+function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
