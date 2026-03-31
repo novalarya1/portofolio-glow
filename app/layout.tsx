@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "next-themes"; // Import Provider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Noval Arya | Creative Developer",
   description: "Portfolio specializing in modern web interfaces.",
-  // Tambahkan baris di bawah ini
   icons: {
     icon: "/logo.png", 
     apple: "/logo.png",
@@ -30,9 +30,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-charcoal text-white`}>
-        {children}
+    // Tambahkan suppressHydrationWarning agar tidak error saat switch tema
+    <html lang="id" className="scroll-smooth" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-charcoal text-charcoal dark:text-white transition-colors duration-300`}>
+        {/* Bungkus dengan ThemeProvider */}
+        <ThemeProvider attribute="class" defaultTheme="dark">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

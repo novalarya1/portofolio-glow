@@ -70,3 +70,14 @@ body {
   from { background-position: 0% center; }
   to { background-position: 200% center; }
 }
+
+@theme {
+  /* Warna utama kamu */
+  --color-charcoal: #121212;
+  --color-neonBlue: #22d3ee;
+}
+
+/* Pastikan transisi warna halus */
+body {
+  @apply transition-colors duration-300;
+}
