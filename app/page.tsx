@@ -1,7 +1,9 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import About from "./components/About"
+import About from "./components/About";
+import Education from "./components/Education"; // Import komponen baru
 import { BentoGrid } from "./components/BentoGrid";
+import { Certificates } from "./components/Certificates";
 import Contact from "./components/Contact";
 
 export default function Home() {
@@ -15,7 +17,7 @@ export default function Home() {
 
       {/* About Section: Introducing yourself and your core skills */}
       <About />
-      
+
       {/* Projects Section: Showcasing your work */}
       <section id="project" className="relative py-24 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
@@ -39,6 +41,14 @@ export default function Home() {
         
         {/* Background Decoration Glow */}
         <div className="absolute top-0 right-0 -z-10 w-100 h-100 bg-neonBlue/5 blur-[120px] pointer-events-none" />
+      </section>
+      
+      {/* Education Section: Your academic learning path */}
+        <Education />
+        
+      {/* Certificates Section: Official recognitions */}
+      <section id="certificates" className="bg-charcoal/50 py-12">
+        <Certificates />
       </section>
 
       {/* Contact Section: The final call to action */}

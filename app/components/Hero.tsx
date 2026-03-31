@@ -5,11 +5,10 @@ export default function Hero() {
   const line1 = "Designing the future";
   const line2 = "digital interfaces";
 
-  // Scroll function for a smooth experience
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -31,7 +30,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+    <section className="relative min-h-[95vh] flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       {/* Background Effect */}
       <div className="absolute inset-0 -z-10 flex items-center justify-center">
         <div className="absolute w-125 h-125 bg-neonPurple/15 rounded-full blur-[120px] animate-pulse" />
@@ -81,34 +80,55 @@ export default function Hero() {
           <span className="text-gray-300"> minimalist design</span> and <span className="text-gray-300">fluid animations</span>.
         </motion.p>
 
+        {/* Action Buttons Group */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.6 }}
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+          className="mt-12 flex flex-wrap gap-4 justify-center"
         >
-        
+          {/* Tombol Utama: Projects */}
           <button 
-            onClick={() => {
-              // Sesuaikan ID dengan yang ada di page.tsx Anda yaitu "project"
-              const projectSection = document.getElementById("project");
-              if (projectSection) {
-                projectSection.scrollIntoView({ behavior: "smooth" });
-              }
-            }}
+            onClick={() => scrollToSection("project")}
             className="px-8 py-4 bg-white text-black font-bold rounded-full hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-white/10 cursor-pointer"
           >
             View Projects
           </button>
           
-          {/* Functional Contact Me Button */}
+          {/* Tombol: Education & Certificates (Digabung agar lebih clean) */}
           <button 
-            onClick={scrollToContact}
+            onClick={() => scrollToSection("education")}
+            className="px-8 py-4 border border-neonBlue/30 text-neonBlue font-medium rounded-full hover:bg-neonBlue/10 transition-all backdrop-blur-sm cursor-pointer active:scale-95"
+          >
+            Education & Certs
+          </button>
+
+          {/* Tombol: Contact */}
+          <button 
+            onClick={() => scrollToSection("contact")}
             className="px-8 py-4 border border-white/10 text-white font-medium rounded-full hover:bg-white/5 transition-all backdrop-blur-sm cursor-pointer active:scale-95"
           >
             Contact Me
           </button>
         </motion.div>
+      </motion.div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
+        onClick={() => scrollToSection("about")}
+      >
+        <span className="text-gray-500 text-[10px] uppercase tracking-[0.2em] group-hover:text-neonBlue transition-colors">
+          Scroll to Explore
+        </span>
+        <motion.div 
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-1 h-8 bg-gradient-to-b from-neonBlue to-transparent rounded-full"
+        />
       </motion.div>
     </section>
   );

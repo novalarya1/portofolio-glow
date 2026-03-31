@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   // Tambahkan baris di bawah ini
   icons: {
     icon: "/logo.png", 
-    apple: "/logo.png", // Opsional: Untuk perangkat Apple
+    apple: "/logo.png",
   },
 };
 

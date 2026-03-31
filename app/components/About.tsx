@@ -6,17 +6,17 @@ const skills = [
   {
     icon: <Code2 size={24} />,
     title: "Frontend Development",
-    desc: "Crafting responsive and interactive user interfaces using React and Next.js.",
+    desc: "Specializing in React and Vue.js to build high-performance, SEO-friendly web applications with seamless client-side navigation.",
   },
   {
     icon: <Palette size={24} />,
-    title: "UI/UX Design",
-    desc: "Designing clean, minimalist, and user-centric digital experiences.",
+    title: "UI/UX Implementation",
+    desc: "Transforming complex designs into pixel-perfect interfaces using Tailwind CSS and Framer Motion for fluid user experiences.",
   },
   {
     icon: <Terminal size={24} />,
     title: "Backend Solutions",
-    desc: "Managing databases and building scalable server-side applications.",
+    desc: "Architecting robust server-side logic and database schemas using Laravel and Node.js to ensure scalable and secure data management.",
   },
 ];
 
@@ -60,8 +60,8 @@ export default function About() {
                 <p className="text-gray-500 text-sm">Years Exp.</p>
               </div>
               <div>
-                <h4 className="text-white text-3xl font-bold">15+</h4>
-                <p className="text-gray-500 text-sm">Projects Done</p>
+                <h4 className="text-white text-3xl font-bold">3+</h4> {/* Disesuaikan dengan jumlah repo kamu */}
+                <p className="text-gray-500 text-sm">Open Source Projects</p>
               </div>
             </div>
           </motion.div>
