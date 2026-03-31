@@ -14,6 +14,15 @@ const certificates = [
   },
   {
     id: 2,
+    title: "IC3 GS6 Level 1",
+    issuer: "IC3 Digital Literacy",
+    date: "2024",
+    desc: "A global standard certifying proficiency in digital technology. Validating fundamental expertise in hardware, software, and secure internet navigation. Committed to empowering individuals through essential digital literacy and cybersecurity awareness.",
+    link: "https://drive.google.com/file/d/1m1nyh2547e6rr1clRSbuDPttdqG84zcX/view?usp=sharing",
+    color: "from-emerald-500/20 to-teal-500/20",
+  },
+  {
+    id: 3,
     title: "Full Stack Web Development",
     issuer: "Timedoor Academy",
     date: "2026",
