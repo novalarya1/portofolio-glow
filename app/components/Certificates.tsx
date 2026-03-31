@@ -27,7 +27,7 @@ const certificates = [
     issuer: "Timedoor Academy",
     date: "2026",
     desc: "Specializing in software development and tech education. Providing web and mobile application development, IT outsourcing, and international work culture integration for professional careers.",
-    link: "https://drive.google.com/drive/u/0/folders/18W7jPaVaGok0jfAPWuHfriH_auoT7mfY",
+    link: "https://drive.google.com/file/d/1g9YczPUPfJ1Xqv463JrGeg809WcOW8Q6/view?usp=sharing",
     color: "from-blue-500/20 to-purple-500/20",
   },
 ];
