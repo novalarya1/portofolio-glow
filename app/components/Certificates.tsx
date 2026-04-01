@@ -5,12 +5,12 @@ import { Award, ExternalLink, ShieldCheck } from "lucide-react";
 const certificates = [
   {
     id: 1,
-    title: "Engineering",
-    issuer: "PT Aplikanusa Lintasarta",
-    date: "2023",
-    desc: "A leading ICT solutions provider in Indonesia. Offering services from high-speed connectivity to secure cloud computing infrastructure. Committed to empowering institutions through innovative IT managed services.",
-    link: "https://drive.google.com/drive/u/0/folders/18W7jPaVaGok0jfAPWuHfriH_auoT7mfY",
-    color: "from-emerald-500/20 to-teal-500/20",
+    title: "Full Stack Web Development",
+    issuer: "Timedoor Academy",
+    date: "2026",
+    desc: "Specializing in software development and tech education. Providing web and mobile application development, IT outsourcing, and international work culture integration for professional careers.",
+    link: "https://drive.google.com/file/d/1g9YczPUPfJ1Xqv463JrGeg809WcOW8Q6/view?usp=sharing",
+    color: "from-blue-500/20 to-purple-500/20",
   },
   {
     id: 2,
@@ -23,12 +23,12 @@ const certificates = [
   },
   {
     id: 3,
-    title: "Full Stack Web Development",
-    issuer: "Timedoor Academy",
-    date: "2026",
-    desc: "Specializing in software development and tech education. Providing web and mobile application development, IT outsourcing, and international work culture integration for professional careers.",
-    link: "https://drive.google.com/file/d/1g9YczPUPfJ1Xqv463JrGeg809WcOW8Q6/view?usp=sharing",
-    color: "from-blue-500/20 to-purple-500/20",
+    title: "Engineering",
+    issuer: "PT Aplikanusa Lintasarta",
+    date: "2023",
+    desc: "A leading ICT solutions provider in Indonesia. Offering services from high-speed connectivity to secure cloud computing infrastructure. Committed to empowering institutions through innovative IT managed services.",
+    link: "https://drive.google.com/drive/u/0/folders/18W7jPaVaGok0jfAPWuHfriH_auoT7mfY",
+    color: "from-emerald-500/20 to-teal-500/20",
   },
 ];
 
