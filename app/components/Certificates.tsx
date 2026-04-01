@@ -27,7 +27,7 @@ const certificates = [
     issuer: "PT Aplikanusa Lintasarta",
     date: "2023",
     desc: "A leading ICT solutions provider in Indonesia. Offering services from high-speed connectivity to secure cloud computing infrastructure. Committed to empowering institutions through innovative IT managed services.",
-    link: "https://drive.google.com/drive/u/0/folders/18W7jPaVaGok0jfAPWuHfriH_auoT7mfY",
+    link: "https://drive.google.com/file/d/1wE_4GHXY-3VzVBLU1OLjG4ZkYcN6Y53k/view?usp=sharing",
     color: "from-emerald-500/20 to-teal-500/20",
   },
 ];
