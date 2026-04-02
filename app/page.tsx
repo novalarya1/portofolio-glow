@@ -48,7 +48,7 @@ export default function Home() {
       <Education />
         
       {/* Certificates Section */}
-      <section id="certificates" className="bg-zinc-50 dark:bg-charcoal/50 py-12 transition-colors">
+      <section id="certificates" className="bg-white dark:bg-charcoal/50 py-12 transition-colors">
         <Certificates />
       </section>
 
